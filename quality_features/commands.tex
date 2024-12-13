@@ -1,0 +1,10 @@
+%===============================================================================
+% Define commands here
+
+% dd-mm-yyyy format
+% with zero padding to two digits for month and day
+\makeatletter
+\renewcommand{\today}{\the\year-\two@digits{\the\month}-\two@digits{\the\day}}
+\makeatother
+
+%===============================================================================

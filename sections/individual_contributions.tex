@@ -1,0 +1,110 @@
+%===============================================================================
+\section{Individual Contributions}
+
+% !!! Reference back to the project plan !!!
+
+% Contributions
+This section will provide a summary of what each team member has worked on, their challenges and their contributions to the project goals:
+%-------------------------------------------------------------------------------
+\subsection*{Viktor Eriksson}
+\begin{itemize}
+    \item \textbf{Work}: 1.6.2 \textit{Develop AI for strategy planning} including the creation of the \ac{ai} based strategies for decision-making using \ac{rl} to allow the algorithm to discover its own football strategies. 1.6.2.1  \textit{Develop the \acs{ai}-algorithm}, creating \ac{mappo} in C++ and selecting suitable architectures and hyper parameters. 1.6.2.2 \textit{Train the \acs{ai}-algorithm}, training the \ac{ai} in the simulated environment grSim, making adjustments and fixing errors in the code in an attempt to obtain the desired performance and behaviour.
+
+    \item \textbf{Challenges}: Training is computationally expensive, and it is currently performed using the \ac{cpu}, with only one iteration processed at a time, which means there is no parallel training. This makes the training take longer then expected, making it more challenging to develop an effective strategy for the \ac{ai} algorithm and to achieve the desired results. 
+    \item \textbf{Contributions to project goals}: Research on strategy planning for a robot team, including researching suitable \ac{ai} algorithms for finding the best strategies. Development of the \ac{ai} algorithm, as well as training and evaluating it in grSim. This is necessary for obtaining the strategy planning for the robot team.
+\end{itemize}
+%-------------------------------------------------------------------------------
+\subsection*{Anton Grusell}
+\begin{itemize}
+    \item \textbf{Work}: 2.1.3.1 \textit{Chassis design}, 2.1.3.2 \textit{Wheel design}, 2.1.3.3 \textit{Dribbler design}, 2.1.3.5 \textit{Mounting design}, 2.2.2.1 \textit{Manufacture chassis}, 2.2.2.2 \textit{Manufacture wheels}, 2.2.2.3 \textit{Manufacture dribbler}. The work has been put into designing the parts in \ac{cad} to ensure size compatibility between the different systems in the robot. The wheels have been manufactured, the baseplate on which everything is mounted is in progress and the dribbler has been cancelled.
+    \item \textbf{Challenges}: Due to the size of all the parts, many revisions had to be made. The dribbler has been difficult to make fit due to the size of the motor. The plan was to use a screw clipper to cut the different screws to the correct lengths, this works for the M3 screws but for M4 screws the threading gets destroyed, causing further delays as screws of proper length had to be acquired.
+    \item \textbf{Contributions to project goals}: Research. Developing the overall \ac{cad} design which includes the mountings, the chassis, the wheels, the dribbler and ensuring that the size constraints are met. Manufacturing the wheels, chassis and mountings. Worked on setting up a test rig for the dribbler to find the best dribbler bar height with the hopes of implementing it into the robot before 2.2.2.3 got cancelled. Created renders of different parts of the robot for both the posters and the presentation.
+\end{itemize}
+%-------------------------------------------------------------------------------
+\subsection*{Mudar Ibrahim}
+\begin{itemize}
+    \item \textbf{Work}: 1.3.5 \textit{Sensor Interface}, 1.3.5.5 \textit{\acs{rgb} sensor}, 1.3.5.5.1 \textit{\ac{i2c} implementation}. 1.3.7 \textit{Establish communication between Raspberry Pi and Nucleo 144} and 1.3.7.1 \textit{Install \acs{micro-ros} on Raspberry Pi and Nucleo 144 (\ac{uart})}.
+    Responsible for project management, coordinating communication with stakeholders, and the collaboration with teams in Colombia (\ac{udea}) and Panama (\ac{utp}).
+   
+    \item \textbf{Challenges}: Time constraints made it challenging to complete all tasks outlined in the \ac{wbs}. Additionally, debugging low-level programming during the establishment of sensor communication delayed progress. 
+    \item \textbf{Contributions to project goals}: Responsible for ensuring agile planning, following up on the teams progress and ensuring deadlines were met. Additionally, contributed as a software developer, focusing on communication, and conducted research on how to integrate \ac{micro-ros}. Assisted with setting up and configuring the \ac{micro-ros} subscribers and publishers.
+\end{itemize}
+%-------------------------------------------------------------------------------
+\subsection*{Jacob Johansson}
+\begin{itemize}
+    \item \textbf{Work}: 1.6.1 \textit{Outline actions} and 1.6.1.2 \textit{Outline World representation} (input) are volatile due to constant testing and evaluation of the algorithm, testing its learning capabilities with varying amount of states and actions, which goes hand in hand with task 1.6.2.1. 1.6.2.1 \textit{Develop the \acs{ai}-algorithm}: the majority of the time has been spent on debugging and testing different states and actions. Tasks 1.6.4.2 \textit{Be able to receive referee command and signals from \acs{ssl} interface}, and 1.6.4.3 \textit{Be able to receive pose data from \acs{ssl} interface} were developed along side each other since both tasks were required to allow the algorithm to be tested in simulation.
+    \item \textbf{Challenges}: The source paper which was used to implement the algorithm contradicts itself, making it difficult to understand what parameters were chosen and their setup. Similarly, the PyTorch C++ library is poorly documented. Several functions and classes which are mentioned in the documentation are missing from the source code. As a result, the missing functionalities had to be implement in-house with the aid of Viktor, which further extended the development time beyond what was expected.
+    \item \textbf{Contributions to project goals}: Altered the code, changing the algorithm to use "centralised training, decentralised execution" approach in order to align it with the algorithm explained in a different paper.
+\end{itemize}
+%-------------------------------------------------------------------------------
+\subsection*{Aaiza Aziz Khan}
+\begin{itemize}
+    \item \textbf{Work}:  1.3 \textit{Hardware interface}. Specifically, 1.3.7 \textit{Establish communication between Raspberry Pi and Nucleo 144}, 1.3.7.1 \textit{Install micro-ROS on Raspberry Pi and Nucleo 144 (\ac{uart})}, 1.3.7.2 \textit{Implement ROS functionality}.
+    \item \textbf{Challenges}: The setup of the Raspberry Pi proved to be a bit challenging in the beginning. Raspberry Pi is used in headless mode and the server version of Ubuntu is used as the \ac{os}. University Wi-Fi was used for connectivity, which created a lot of issues like authentication errors, IP was changing, user ID issues, personal password on shared devices and more. The problems were resolved after borrowing router credentials for a personal router from another group (\ac{stad}) in C2.
+    \item \textbf{Contributions to project goals}: Built \ac{uart} communication between raspberry pi and Nucleo 144. Working on \ac{ros2} in raspberry pi for \ac{uart} communication.
+\end{itemize}
+%-------------------------------------------------------------------------------
+\subsection*{Carl Larsson}
+\begin{itemize}
+    \item \textbf{Work}: 1.3 \textit{Hardware interface}, specifically 1.3.2 \textit{Wheel motor interface}. 1.5 \textit{Individual robot behaviour}, worked on the executable code which is to run on the Raspberry Pi on the robot. Solved the compilation error, which appeared after a merge, together with Emil Åberg, this error affected 1.2 \textit{\acs{ssl} interface} and 1.6 \textit{Collective robot behaviour}. Ensuring all the software documentation and tests are in order, together with other management tasks. Main writer of PRO1, PRO2, PRO3 and PRO4, including updating when things change and dealing with the responses, fixing the reports accordingly. Also worked on the presentation, creating figures and animations.
+    \item \textbf{Challenges}: 1.5.5 \textit{nav2 stack configuration} error consuming significant work hours. Problems with MC Workbench and \ac{uart} functionality generated by STM32CubeMX, which ended up taking substantial amount of time, especially given that these problems almost feel non-deterministic. Difficulties managing time given the substantial amount of time having to be sunk into documentation and all the work which had to be done with PRO1, PRO2, PRO3 and PRO4.
+    \item \textbf{Contributions to project goals}: Contributing to getting the motors and the motor control working. Fixing the high level functionality of the individual robots, like path planning and shooting. Documentation, writing of papers, ensuring members do the intended work and guiding them along.
+\end{itemize}
+%-------------------------------------------------------------------------------
+\subsection*{Johanna Melander}
+\begin{itemize}
+    \item \textbf{Work}: 
+    2.1.4.2 \textit{Design kicker circuit}, 2.1.4.9 \textit{Design kicker \acs{pcb}}. The focus has been on the development and redesign of the kicker to meet the updated project requirements. 
+    The kicker, initially designed for $100$\:\ac{v}, was adapted for $300$\:\ac{v} testing by integrating a demonstration circuit featuring a high-voltage capacitor charger controller. 
+    This adjustment required modifications to the control circuit to ensure compatibility with the higher voltage. 
+    Implemented code to control the capacitor charger and the kicker control circuit to test the system. 
+    The 3D model of the kicker has been redesigned to ensure that it fits. 
+    \item \textbf{Challenges}: 
+    To accommodate the new $300$\:\ac{v} requirement, the kicker control circuit and \ac{pcb} had to be redesigned.
+    The high voltage capacitor charger circuit has not performed as expected, charging only up to $140$\:\ac{v} instead of the $300$\:\ac{v}. Testing at this voltage showed some improvement in the kickers performance. Troubleshooting was required to determine the cause of the circuits unexpected behaviour. The issue was traced to the power supply, switching to a battery resolved the problem and the circuit provided $300$\:\ac{v}.    
+    \item \textbf{Contributions to project goals}: 
+    Research. Designed and developed the necessary hardware and circuitry for the kicker systems to provide the robots with the necessary capabilities to shoot the ball for goal scoring and passing. A critical part for the system to be able to compete in the \ac{ssl}-RoboCup.
+\end{itemize}
+%-------------------------------------------------------------------------------
+\subsection*{Shruthi Puthiya Kunnon}
+\begin{itemize}
+    \item \textbf{Work}: 1.3 \textit{Hardware interface}, especially working with 1.3.7 \textit{Establish communication between Raspberry Pi and Nucleo 144}, 1.3.7.1 \textit{Install micro-ROS on Raspberry Pi and Nucleo 144 (\ac{uart})}, 1.3.7.2 \textit{Implement ROS functionality}.
+    \item \textbf{Challenges}: Initially, configuring the headless Raspberry Pi to connect to the \ac{pc} via Wi-Fi was challenging. A cable is required to connect the Raspberry Pi to a monitor for standard (non-headless) setup, which was not available. The \ac{stad} team eventually provided a micro-\ac{hdmi} to \ac{hdmi} cable. Authentication issues where encountered while connecting Raspberry pi to the university Wi-Fi.
+    \item \textbf{Contributions to project goals}: Developed \textit{Hardware interface} to establish \ac{uart} communication between Nucleo 144 board and Raspberry Pi. Working on establishing communication between a Raspberry Pi and a Nucleo-144 board using \ac{ros} topics. 
+\end{itemize}
+%-------------------------------------------------------------------------------
+\subsection*{Pontus Svensson}
+\begin{itemize}
+    \item \textbf{Work}: 2.1.4.2 \textit{Design kicker circuit}, helped with creating the circuit in Kicad. 2.1.4.9 \textit{Design kicker \acs{pcb}}, helped with design considerations in Kicad \acs{pcb} tool. 2.1.4.6 \textit{Integrate circuits}, integrated all the circuits to the mainboard so that the Nucleo can control all external circuitry. 2.1.4.7 \textit{Design mainboard \acs{pcb}}, power distribution, $2.8$\:\ac{v}, $3.3$\:\ac{v}, $5$\:\ac{v} and $24$\:\ac{v}, ORing circuitry and reverse voltage protection were implemented. 2.1.4.8 \textit{Design carrier board for motor driver}, the \ac{esc} does not fit on the mainboard unless it is mounted vertically, an adapter board was created to accommodate this issue. 2.1.4.11 \textit{Encoder \acs{pcb}}, the encoder requires additional circuitry to work and an encoder \ac{pcb} was designed. 2.2.1 \textit{Manufacture \acs{pcb}}, soldering of components for all the \acp{pcb} created. 2.2.1.1 \textit{Mainboard} manufactured, soldered components. 2.2.1.3 \textit{Kicker board}, soldered components. 2.2.1.4 \textit{Motor driver carrier board}, soldered components. 2.2.1.5 \textit{Encoder board}, soldered components.
+
+    \item \textbf{Challenges}: Design considerations which ensured that the mainboard and the components, e.g. \ac{esc} (which takes up too much space if placed horizontal), would fit became problematic given the size constraints of the robot. All the components for the \acp{pcb} are surface mounted and thus really small. Without having a pick and place this had to be done by hand, which is a time-consuming process. Steps were taken to lessen this problem by selecting larger than necessary components and increasing the size of the soldering pads, but it was still problematic. The design of the mainboard could be improved by utilizing several layers and using surface mounted socket headers. This would make routing the traces a lot more efficient and allow thicker traces for components requiring more current.
+    Due to the limited amount of time for this project, there is no room for errors regarding the \ac{pcb} designs. This is because each \ac{pcb} has to be manufactured by companies such as JLCPCB. Given the time it takes for delivery, de-soldering, and soldering the components on the new \ac{pcb}, it is unrealistic to create several designs or improving the design in the same iteration of the project. 
+    
+    \item \textbf{Contributions to project goals}: Developed circuitry for powering and controlling all the essential hardware components, such as: \ac{mcu}, sensors, dribbler and motors. Documenting the hardware development process. Implementing control algorithm for the wheel motors and integrating the optical encoders with the wheel motors using \ac{foc}. 
+    Helping and guiding the hardware team to move forward with the project and the various work packages. Created tasks and attending meetings for the collaboration with \ac{udea} and \ac{utp}.
+    Ensuring that the project presentation has a clear goal with the information provided and that it is well executed.
+\end{itemize}
+%-------------------------------------------------------------------------------
+\subsection*{Fredrik Westerbom}
+\begin{itemize}
+    \item \textbf{Work}: Deliverable 1.3.2 \textit{Wheel motor interface} and subtasks 1.3.2.1 and 1.3.2.2. The work has mainly involved programming the \ac{esc}, created by STM, using their software.
+    \item \textbf{Challenges}: Developing and utilizing the tools has been challenging. However, the community forums in combinations with the documentation has eased the challenges somewhat. Currently, the primary focus is on resolving the \ac{uart} communication issues. Once that is completed the motors should be able to execute \ac{rpm} commands sent to them.
+    \item \textbf{Contributions to project goals}: The wheel motor interface is crucial to have the robots be able to move on the field. Without the wheel motor interface the robot cannot execute the commands sent to them.
+\end{itemize}
+%-------------------------------------------------------------------------------
+\subsection*{Emil Åberg}
+\begin{itemize}
+    \item \textbf{Work}: Work Packages 1.1 \textit{Simulate 12 Robots}, 1.1.2 \textit{Simulation Interface}, also organized and helped with work package 1.2 \textit{SSL interface}. \textit{Sensor interface}, specifically: 1.3.5.1.2 \acs{imu} \textit{\acs{i2c} implementation}, 1.3.5.4.1 \acs{lidar} \textit{\acs{i2c} implementation}. Read tutorial and documentation of \ac{micro-ros} in order to begin work with 1.3.7.2 \textit{Install \acs{micro-ros} on Raspberry Pi and Nucleo 144 (\acs{uart})}. Worked together with Carl Larsson to solve a compilation error which appeared after merge of 1.2 \textit{\acs{ssl} interface} and 1.6 \textit{Collective robot behaviour} software.
+    \item \textbf{Challenges}: Device drivers for the sensors are full of \ac{hal} calls which can only execute on the STM32 microcontroller. This makes it difficult to create unit tests which are to run on a \ac{pc}.
+    \item \textbf{Contributions to project goals}: Developed \textit{Simulation Interface}, structured and helped implement \textit{\acs{ssl} Interface}. Developed driver for 9-\ac{dof} \ac{imu} BNO055, integrated third party drivers for 6-\ac{dof} \ac{imu} WSEN\_ISDS and both \acp{lidar}: vl53l4cd and vl6180. Set up structure for repository that contains code for STM32 and wrote manuals for it. Read documentation and tutorials for \ac{micro-ros} with the purpose of integrating it to establish communication between Raspberry Pi and Nucleo 144 board.
+\end{itemize}
+%-------------------------------------------------------------------------------
+
+
+%===============================================================================
+
+\begin{comment}
+
+\end{comment}
+
+%===============================================================================

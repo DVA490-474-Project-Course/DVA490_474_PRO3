@@ -1,0 +1,136 @@
+%===============================================================================
+
+\documentclass[conference]{IEEEtran}
+% Include all packages from file.
+% Report template for Mälardalen University
+% Original template can be found: 
+% https://www.overleaf.com/latex/templates/ieee-bare-demo-template-for-conferences/ypypvwjmvtdf
+% Template file structure organised by: Emil Persson
+% The following packages should follow the IEEE conference guidelines.
+
+%===============================================================================
+% QoL
+
+\input{quality_features/packages}
+\input{quality_features/acronym}
+\input{quality_features/definitions}
+
+%===============================================================================
+% Template stuff
+
+% Swedish language package 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[swedish,english]{babel}
+
+% Graphics
+\usepackage{graphicx, float, subfigure, blindtext}
+
+\newcommand\IEEEhyperrefsetup{
+bookmarks=true,bookmarksnumbered=true,%
+colorlinks=true,linkcolor={black},citecolor={black},urlcolor={black}%
+}
+
+% Preferred hyperref setup, Michael Shell
+\usepackage[\IEEEhyperrefsetup, pdftex]{hyperref}
+
+% Maths
+\usepackage{mathtools}
+
+% These packages must be at the end
+\usepackage{cleveref}
+\graphicspath{{images/}}
+
+% Remove section first paragraph indent
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{*1}{*1}
+\titlespacing*{\subsection}{0pt}{*1}{*1}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+\titleformat{\subsubsection}[runin]{\itshape}{\thesubsubsection)}{1em}{}[:]
+\titlespacing*{\subsubsection}{\parindent}{0pt}{*1}
+
+%===============================================================================
+% Author
+
+% Include authors 
+\author{\IEEEauthorblockN{ %
+Viktor Eriksson\IEEEauthorrefmark{1},
+Anton Grusell\IEEEauthorrefmark{2}, 
+Mudar Ibrahim\IEEEauthorrefmark{3},
+Jacob Johanssson\IEEEauthorrefmark{4},
+Aaiza Aziz Khan\IEEEauthorrefmark{5},
+Carl Larsson\IEEEauthorrefmark{6},\\
+Johanna Melander\IEEEauthorrefmark{7},
+Shruti Puthiya Kunnon\IEEEauthorrefmark{8},
+Pontus Svensson\IEEEauthorrefmark{9},
+Fredrik Westerbom\IEEEauthorrefmark{10},
+Emil Åberg\IEEEauthorrefmark{11}
+}
+\IEEEauthorblockA{
+School of Innovation, Design and Engineering, M.Sc.Eng Robotics\\
+Mälardalens University, Västerås, Sweden\\
+Email:
+\{\IEEEauthorrefmark{1}Ven20002, 
+\IEEEauthorrefmark{2}agl19003,
+\IEEEauthorrefmark{3}mim20004,
+\IEEEauthorrefmark{4}jjn20030,
+\IEEEauthorrefmark{5}akn23018,
+\IEEEauthorrefmark{6}cln20001,\\
+\IEEEauthorrefmark{7}Jmr19002,
+\IEEEauthorrefmark{8}spn23001,
+\IEEEauthorrefmark{9}psn19003,
+\IEEEauthorrefmark{10}fnl18001, 
+\IEEEauthorrefmark{11}eag24002\}@student.mdu.se
+}}
+
+%===============================================================================
+% Title
+
+% The report title.
+\title{Multi-robot Soccer - RoboCup - PRO3\\
+Mälardalen University}
+% Document begins here
+\begin{document}
+
+%===============================================================================
+% Commands needs to be included here for commands to work in document
+
+\input{quality_features/commands}
+
+%===============================================================================
+% Header stuff
+
+% Create the title.
+\maketitle
+% Create date
+\begin{strip}
+    \begin{center}
+        \today
+    \end{center}
+\end{strip}
+
+%===============================================================================
+% Sections
+
+% Example sections, name them
+% according to specific needs.
+\input{sections/project_information}
+\input{sections/project_progress_summary}
+\input{sections/work_package_status}
+\input{sections/completed_and_upcoming_activities}
+\input{sections/issues_blockers_and_risks_status}
+\input{sections/individual_contributions}
+
+% Select the IEEEtran style
+\bibliographystyle{IEEEtran}
+% Include bibliography file
+%\bibliography{IEEEabrv,references}
+
+\clearpage
+\input{sections/appendix}
+
+%===============================================================================
+
+\end{document}
+
+%===============================================================================

@@ -1,0 +1,229 @@
+%===============================================================================
+\section{Work Package Status}
+
+% !!! Reference back to the project plan !!!
+
+% !!! ONLY WORK PACKAGES SHOULD BE COVERED !!!
+
+All information regarding the work packages which are apart of the 8th of November to 6th of December work period are covered in the following subsections. Note that only work packages are covered, and that sub-work packages exist.
+
+%-----------------------------------------------
+% Description of columns:
+
+% ID: ID of task/workpackage/deliverable.
+
+% Name: Name of task/workpackage/deliverable.
+
+% Planning status: "On-track" or "Off-track".
+
+% Completion status:  "Not started", "On Hold", "Cancelled", "In Progress", or "Completed".
+
+% Accountability: People responsible for the package.
+
+% Recovery plan: If a package is "Off-track" then here you write the plan to get it back "On-track".
+
+% Progress: Summary of progress, highlighting key outcomes and which tasks/deliverables have been completed. Include both ID and name of tasks and deliverables.
+
+% Issues: List challenges/issues.
+
+% Next steps: Outline the work package's next set of tasks or milestones. List the next deliverables and task which will be done, their ID and name.
+%-----------------------------------------------
+
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+
+\subsection*{1.3 Hardware interface}
+\begin{itemize}
+    \item \textbf{Planning status}: Off-track
+    \item \textbf{Completion status}: In Progress 
+    \item \textbf{Accountability}: Mudar Ibrahim, Aaiza Aziz Khan, Carl Larsson, Shruthi Puthiya Kunnon, Fredrik Westerbom, Emil Åberg
+    \item \textbf{Recovery plan}: Allocating additional work force. 
+    \item \textbf{Progress}: 1.3.2 \textit{Wheel motor interface} is currently being worked on, with current efforts focused on task 1.3.2.1 \textit{Establish communication using \acs{uart}}, and 1.3.2.2 \textit{Implement \acs{foc}} having been completed. 
+    
+    Integrating \ac{micro-ros} for the purpose of setting up \ac{ros} subscriptions over \ac{uart} between Nucleo 144 and Raspberry PI (1.3.7) is currently being worked on. 1.3.5 \textit{Sensor interface} has been completed for all sensors that have not been cancelled (due to a lack of time or lack of hardware).
+    \item \textbf{Issues}: The software used for testing the motors and developing the motor control algorithm (\ac{foc}), called MC Workbench 6 with the tool \acs{foc} Wizard, has proven problematic (Delft Mercurians also encountered problems with this software). This has resulted in an unexpected amount of time being spent on solving 1.3.2.
+    
+    The software tool STM32CubeIDE has also proven to be difficult to work with, not only because its poor debugging tool, but also because of issues with the generated code. From debugging Carl and Fredrik can determine that the \ac{esc} can receive \ac{rpm} values via \ac{uart}. However, the values seem to be inaccurate and are not updated continuously.
+    %To mitigate these problems regarding task 1.3.2.1, Carl and Fredrik aim to test different baud rates, enable \ac{fifo} as well as debugging using the configurable red \ac{led} on the \ac{esc}.
+    \item \textbf{Next steps}: N/A
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+
+\subsection*{1.3.5 Sensor interface}
+\begin{itemize}
+    \item \textbf{Planning status}: Off-track
+    \item \textbf{Completion status}: In Progress
+    \item \textbf{Accountability}: Mudar Ibrahim, Aaiza Aziz Khan, Shruthi Puthiya Kunnon, Emil Åberg
+    \item \textbf{Recovery plan}: Accept that the robot will be without wheel encoders, camera and break bream.
+    \item \textbf{Progress}: Implementation of device drivers which allows the reading of \ac{imu}, \ac{lidar} and \ac{rgb} sensor measurements on STM32 via \ac{i2c} has been completed (1.3.5.1.2, 1.3.5.4.1, 1.3.5.5.1). 1.3.5.2 \textit{Wheel encoders} can not be implemented since the wheel encoders have yet to be delivered, hence it was cancelled. 1.3.5.3 \textit{Camera} was cancelled because of lack of time. 1.3.5.6 \textit{Break beam} was cancelled due to the project not being allowed to choose sensors freely.
+    \item \textbf{Issues}: All device drivers for the sensors are full of \ac{hal} calls which can only execute on the STM32 microcontroller. This means it is not possible to write GoogleTest test cases which are to run on a PC. Also, STM32CubeIDE has its own project structure, separate from the one which is otherwise used throughout this project. A way to change it while keeping the functionality of the code generator intact was not found. It was decided that the project structure of STM32CubeIDE was to be used for the repository containing the STM32 software while keeping code that has been written by the project members (and not produced by the code generator) in a separate directory where all standards of the project are followed.
+    \item \textbf{Next steps}: N/A
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+
+\subsection*{1.4 Communication protocol}
+\begin{itemize}
+    \item \textbf{Planning status}: On-track
+    \item \textbf{Completion status}: Cancelled
+    \item \textbf{Accountability}: Aaiza Aziz Khan, Shruthi Puthiya Kunnon, Emil Åberg
+    \item \textbf{Recovery plan}: Theoretically, communication between Raspberry Pi and central computer should be able to be established using existing hardware together with \ac{ros}, which has built-in support for Wi-Fi communication. However, every developer who has \ac{ros} familiarity is currently busy with other work.
+    \item \textbf{Progress}: None
+    \item \textbf{Issues}: Development of custom \ac{rf} communication has been cancelled due to lack of time.
+    \item \textbf{Next steps}: N/A
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+
+\subsection*{1.5 Individual robot behaviour}
+\begin{itemize}
+    \item \textbf{Planning status}: Off-track
+    \item \textbf{Completion status}: In Progress
+    \item \textbf{Accountability}: Carl Larsson
+    \item \textbf{Recovery plan}: It was deemed unrealistic to find the solution for the nav2 configuration problem (1.5.5 \textit{nav2 stack configuration}) according to Carl Larsson and Pontus Svensson (the most experienced \ac{ros2} developers on the team). The compromise instead became running with \ac{slam} since the nav2 stack and the developed code worked as intended when doing so. This was a sacrifice which increased the computational demands of the Raspberry Pi executable, but it ensures additional time is not wasted debugging after having debugged for 4 weeks already, leaving a more optimal solution for future work. With this new approach, 1.5.5 \textit{nav2 stack configuration} will be considered complete.
+    \item \textbf{Progress}: The base functionality is complete. 1.5.6 \textit{Develop supporting functions} remains, having its activities cancelled due to 1.4 \textit{Communication protocol} and some miscommunications. 1.5.7 \textit{Computer vision} was also cancelled since it was discovered late in the project when it was no longer possible to develop it.
+    \item \textbf{Issues}: Problems with getting nav2 to work without using \ac{slam}. Other issues include: miscommunication, activity dependencies, time and work force constraints.
+    \item \textbf{Next steps}: N/A
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+
+\subsection*{1.5.6 Develop supporting functions}
+\begin{itemize}
+    \item \textbf{Planning status}: Off-track
+    \item \textbf{Completion status}: Cancelled
+    \item \textbf{Accountability}: Carl Larsson
+    \item \textbf{Recovery plan}: N/A
+    \item \textbf{Progress}: Was waiting for 1.3 \textit{Hardware interface} to complete before being able to proceed with 1.5.6.1.2 \textit{Run and call on Hardware interface}. 1.5.6.1.1 \textit{Run and call on Simulation interface} was cancelled since this task would cause an overly complicated software structure. The simulation instead directly interfaces with 1.6 \textit{Collective robot behaviour}, this will act as a proof of concept for the \ac{ai} algorithms ability to learn. 1.5.6.2 \textit{Ability to send data}, 1.5.6.3 \textit{Ability to receive data} and 1.5.6.4 \textit{Initialize the robot} were cancelled since 1.4 was cancelled, and because there was some miscommunication regarding hardware initialisation of the robot, complicating the process of obtaining its ID, this is now left for future work.
+    \item \textbf{Issues}: Heavy dependencies on other parts make development impossible until the other parts have been completed.
+    \item \textbf{Next steps}: N/A
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+
+\subsection*{1.5.7 Computer vision}
+\begin{itemize}
+    \item \textbf{Planning status}: Unknown
+    \item \textbf{Completion status}: Cancelled
+    \item \textbf{Accountability}: N/A
+    \item \textbf{Recovery plan}: N/A
+    \item \textbf{Progress}: None
+    \item \textbf{Issues}: Poor planning and oversights caused this package to not be discovered until it was too late to implement.
+    \item \textbf{Next steps}: N/A
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+
+\subsection*{1.6 Collective robot behaviour}
+\begin{itemize}
+    \item \textbf{Planning status}: Off-track
+    \item \textbf{Completion status}: In Progress
+    \item \textbf{Accountability}: Viktor Eriksson, Jacob Johansson
+    \item \textbf{Recovery plan}: Everything will be documented, and code will be restructured to be more simple and easy to follow for the next year's students. This will allow future work to continue working on implementing the algorithm.
+    \item \textbf{Progress}: Found a way to speed up grSim, making it faster to train the algorithm. Deliverables 1.6.3 \textit{Be able to send data}, 1.6.4 \textit{Be able to receive data} and 1.6.5 \textit{Ability to switch playing half on demand} were cancelled due to time constraints. Deliverable 1.6.2 \textit{Develop \acs{ai} for strategy planning} is still in progress, current efforts are being put into debugging the code to understand why the algorithm is not learning. This is partially due to a misunderstanding of how the algorithm works, because it was explained ambiguously in its paper.
+    \item \textbf{Issues}: The robots do not seem to learn the objectives. However, there are no performance metrics to prove this or provide some form of analysis, it is therefore important that this is implemented.
+    \item \textbf{Next steps}: Implement performance metrics for the algorithm to simplify analysis.
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+
+\subsection*{2.1 Base design}
+\begin{itemize}
+    \item \textbf{Planning status}: Off-track
+    \item \textbf{Completion status}: In Progress
+    \item \textbf{Accountability}: Anton Grusell, Johanna Melander, Pontus Svensson, Fredrik Westerbom
+    \item \textbf{Recovery plan}: Accept
+    \item \textbf{Progress}: 2.1.3 \textit{3D-design} and 2.1.4 \textit{Circuit design and integration} are in progress, with a majority of their activities completed.
+    \item \textbf{Issues}: 2.1.3.3 \textit{Dribbler design} had to be redesigned to fit another motor.
+    \item \textbf{Next steps}: N/A 
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+
+\subsection*{2.1.3 3D-design}
+\begin{itemize}
+    \item \textbf{Planning status}: Off-track
+    \item \textbf{Completion status}: In Progress
+    \item \textbf{Accountability}: Anton Grusell, Johanna Melander, Pontus Svensson
+    \item \textbf{Recovery plan}: Accept
+    \item \textbf{Progress}: 2.1.3.1 \textit{Chassis design}, 2.1.3.2 \textit{Wheel design} and 2.1.3.4 \textit{Kicker assembly design} have been completed. 2.1.3.3 \textit{Dribbler design}  and 2.1.3.5 \textit{Mounting design} are in progress.
+    \item \textbf{Issues}: Issues regarding size constraints remain. Due to the dribbler motor not being delivered, the dribbler design is being redesigned to hold a smaller motor.
+    \item \textbf{Next steps}: N/A
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+
+\subsection*{2.1.4 Circuit design and integration}
+\begin{itemize}
+    \item \textbf{Planning status}: Off-track
+    \item \textbf{Completion status}: In Progress
+    \item \textbf{Accountability}: Anton Grusell, Johanna Melander, Pontus Svensson
+    \item \textbf{Recovery plan}: Due to delays in 2.1.4.2 \textit{Design kicker circuit}, the integration of the kicker circuit with the mainboard \ac{pcb} has been excluded in this iteration of the project. However, it is possible to add the control circuitry for the kicker circuit to the mainboard but it will require additional development time. 
+    \item \textbf{Progress}: All circuits have been integrated with the mainboard \ac{pcb} except 2.1.4.9 \textit{Design kicker \ac{pcb}} as it is dependent on 2.1.4.2 \textit{Design kicker circuit} and the \acp{pcb} could not wait any longer for 2.2 \textit{Manufacturing}.
+    \item \textbf{Issues}: Control circuitry on 2.1.4.2 \textit{Design kicker circuit} has delayed the final design and integration of 2.1.4.4 \textit{Design microcontroller circuit} and 2.1.4.7 \textit{Design mainboard PCB}.
+    \item \textbf{Next steps}: 2.2 \textit{Manufacturing}
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+
+\subsection*{2.2 Manufacturing}
+\begin{itemize}
+    \item \textbf{Planning status}: Off-track 
+    \item \textbf{Completion status}: In Progress
+    \item \textbf{Accountability}: Anton Grusell, Johanna Melander, Pontus Svensson
+    \item \textbf{Recovery plan}: Accept
+    \item \textbf{Progress}: 2.2.1.1 \textit{Mainboard}, 2.2.1.4 \textit{Motor driver carrier board} and 2.2.1.5 \textit{Encoder board} \acp{pcb} have all been manufactured and is awaiting the delivery of three components before being able to be completed. 2.2.2.1 \textit{Manufacture chassis} is in progress. 2.2.2.2 \textit{Manufacture wheels} is completed. 2.2.2.4 \textit{Manufacture kicker} is in progress. 2.2.2.5 \textit{Manufacture mountings} is in progress.
+    \item \textbf{Issues}: 2.2.1.1 \textit{Mainboard} is waiting for the delivery of two components, power inductor and socket headers. 2.2.1.4 \textit{Motor driver carrier board} is waiting for the delivery of a socket header. 2.2.1.5 \textit{Encoder board} is waiting for the delivery of the encoder \ac{ic}.
+    \item \textbf{Next steps}: 2.3 \textit{Testing}. 
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+
+\subsection*{2.3 Testing}
+\begin{itemize}
+    \item \textbf{Planning status}: Off-track
+    \item \textbf{Completion status}: In Progress
+    \item \textbf{Accountability}: Anton Grusell, Johanna Melander, Pontus Svensson, Fredrik Westerbom
+    \item \textbf{Recovery plan}: Accept
+    \item \textbf{Progress}: The testing is dependent on 2.1.4 \textit{Circuit design and integration}, 2.2 \textit{Manufacturing} and the delivery of all components. This has resulted in a majority of this work package being cancelled. However, the test phase for the kicker has begun (2.3.2 \textit{Test kicker}). 2.3.3 \textit{Test dribbler} is in progress in the mechanical testing phase.
+    \item \textbf{Issues}: Delays in 2.1.4 \textit{Circuit design and integration}, 2.2 \textit{Manufacturing} and components not being delivered, has made it difficult to start with 2.3 \textit{Testing}.
+    \item \textbf{Next steps}: N/A
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+
+\subsection*{3.1 Develop \acs{hil}}
+\begin{itemize}
+    \item \textbf{Planning status}: Unknown
+    \item \textbf{Completion status}: Cancelled  
+    \item \textbf{Accountability}: N/A
+    \item \textbf{Recovery plan}: N/A
+    \item \textbf{Progress}: None
+    \item \textbf{Issues}: Time and resource constraints.
+    \item \textbf{Next steps}: N/A
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+
+\subsection*{3.2 Validate hardware platform}
+\begin{itemize}
+    \item \textbf{Planning status}: Unknown
+    \item \textbf{Completion status}: Cancelled 
+    \item \textbf{Accountability}: N/A
+    \item \textbf{Recovery plan}: N/A
+    \item \textbf{Progress}: None
+    \item \textbf{Issues}: Time and resource constraints.
+    \item \textbf{Next steps}: N/A
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+
+%===============================================================================
+
+\begin{comment}
+
+\end{comment}
+
+%===============================================================================
